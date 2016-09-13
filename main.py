@@ -12,4 +12,14 @@ class Contact:
 
 
 class Supplier(Contact):
-    pass
+    all_orders = {}
+
+    def __init__(self, name, email):
+        super(Supplier, self).__init__(name, email)
+
+    def order(self, order_name):
+        self.all_orders[self.email] = order_name
+
+# jozsi = Supplier("Józsi", "jozsi@jozsi.jozsi")
+# jozsi.order("kocka")
+# print(Supplier.all_orders)

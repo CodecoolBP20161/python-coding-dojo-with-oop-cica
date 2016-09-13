@@ -1,6 +1,6 @@
 
 class Contact:
-    # all_contacts = []
+    all_contacts = []
 
     def __init__(self, name, email):
         self.name = name

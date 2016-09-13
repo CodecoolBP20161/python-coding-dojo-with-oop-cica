@@ -18,8 +18,18 @@ class Supplier(Contact):
         super(Supplier, self).__init__(name, email)
 
     def order(self, order_name):
-        self.all_orders[self.email] = order_name
+        try:
+            self.all_orders[self.email].append(order_name)
+        except KeyError:
+            self.all_orders[self.email] = [order_name]
 
-# jozsi = Supplier("Józsi", "jozsi@jozsi.jozsi")
-# jozsi.order("kocka")
-# print(Supplier.all_orders)
+
+
+jozsi = Supplier("Józsi", "jozsi@jozsi.jozsi")
+jozsi.order("kocka")
+jozsi.order("paralelogramma")
+print(Supplier.all_orders)
+
+
+class ContactList(list):
+    pass

@@ -7,6 +7,15 @@ class ContactList(list):
                 result.append(element)
         return result
 
+    def longest_name(self):
+        max_lenght = 0
+        name = None
+        for element in self:
+            if len(element[0]) > max_lenght:
+                max_lenght = len(element[0])
+                name = element[0]
+        return name
+
 
 class Contact:
     all_contacts = ContactList()
@@ -39,3 +48,4 @@ jozsi.order("kocka")
 jozsi.order("paralelogramma")
 print(Contact.all_contacts.search("Józsi"))
 # print(Supplier.all_orders)
+print(Contact.all_contacts.longest_name())

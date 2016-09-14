@@ -1,14 +1,18 @@
+class ContactList(list):
+    pass
+
 
 class Contact:
-    all_contacts = []
+    all_contacts = ContactList()
 
     def __init__(self, name, email):
         self.name = name
         self.email = email
+        self.all_contacts.append([name, email])
 
     @classmethod
     def reset_contacts(cls):
-        cls.all_contacts = []
+        cls.all_contacts = ContactList()
 
 
 class Supplier(Contact):
@@ -24,12 +28,8 @@ class Supplier(Contact):
             self.all_orders[self.email] = [order_name]
 
 
-
 jozsi = Supplier("Józsi", "jozsi@jozsi.jozsi")
 jozsi.order("kocka")
 jozsi.order("paralelogramma")
+print(Contact.all_contacts)
 print(Supplier.all_orders)
-
-
-class ContactList(list):
-    pass

@@ -1,5 +1,11 @@
 class ContactList(list):
-    pass
+
+    def search(self, x):
+        result = []
+        for element in self:
+            if x == element[0]:
+                result.append(element)
+        return result
 
 
 class Contact:
@@ -31,5 +37,5 @@ class Supplier(Contact):
 jozsi = Supplier("Józsi", "jozsi@jozsi.jozsi")
 jozsi.order("kocka")
 jozsi.order("paralelogramma")
-print(Contact.all_contacts)
-print(Supplier.all_orders)
+print(Contact.all_contacts.search("Józsi"))
+# print(Supplier.all_orders)
